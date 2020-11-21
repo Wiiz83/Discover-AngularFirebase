@@ -7,7 +7,9 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import {environment} from '../environments/environment';
 import { PageHomeComponent } from './components/page-home/page-home.component';
 import {InputTextModule} from 'primeng/inputtext';
-import { ReactiveFormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

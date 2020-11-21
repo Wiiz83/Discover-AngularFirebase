@@ -17,13 +17,30 @@ export class LivresService {
 
   constructor(private firestore: AngularFirestore) {}
 
-  public createLivre(livre: FormGroup): Promise<any> {
-    debugger;
+  createLivre(livre: FormGroup): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.firestore
         .collection("livres")
         .add(livre)
         .then(res => {}, err => reject(err));
     });
+  }
+
+  updateLivre(data) {
+    return this.firestore
+      .collection("livres")
+      .doc(data.payload.doc.id)
+      .set({ completed: true }, { merge: true });
+  }
+
+  getLivres() {
+    return this.firestore.collection("livres").snapshotChanges();
+  }
+
+  deleteLivre(data) {
+    return this.firestore
+      .collection("livres")
+      .doc(data.payload.doc.id)
+      .delete();
   }
 }

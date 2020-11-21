@@ -17,3 +17,14 @@
     </form>
   </div>
 </div>
+<div class="grid">
+  <div class="col-12">
+    <tbody>
+    <tr *ngFor="let livre of livres">
+      <td>{{ livre.payload.doc.data().titre }}</td>
+      <td>{{ livre.payload.doc.data().auteur }}</td>
+      <td>{{ livre.payload.doc.data().pays }}</td>
+    </tr>
+    </tbody>
+  </div>
+</div>

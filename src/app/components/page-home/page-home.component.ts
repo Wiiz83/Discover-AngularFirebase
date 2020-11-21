@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LivresService} from '../../services/livres.service';
+import {Livre} from '../../models/livre';
 
 @Component({
   selector: 'app-page-home',
@@ -8,16 +9,25 @@ import {LivresService} from '../../services/livres.service';
 })
 export class PageHomeComponent implements OnInit {
 
+  public livres: any[];
+
   constructor(public livresService: LivresService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.loadLivres();
+  }
+
+  loadLivres() {
+    this.livresService.getLivres().subscribe(res => {
+      this.livres = res;
+    });
   }
 
   onSubmit() {
     const livre = this.livresService.formNouveauLivre.value;
     this.livresService.createLivre(livre)
       .then(res => {
-        debugger;
+        console.log(res);
       });
   }
 

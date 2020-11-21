@@ -5,16 +5,22 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from "@angular/fire";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import {environment} from '../environments/environment';
+import { PageHomeComponent } from './components/page-home/page-home.component';
+import {InputTextModule} from 'primeng/inputtext';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageHomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    InputTextModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

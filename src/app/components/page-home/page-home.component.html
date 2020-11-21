@@ -1,0 +1,19 @@
+<div class="grid">
+  <div class="col-12">
+    <form [formGroup]="this.livresService.formNouveauLivre">
+      <span class="p-float-label">
+          <input id="titre" type="text" pInputText formControlName="titre">
+          <label for="titre">Titre</label>
+      </span>
+      <span class="p-float-label">
+          <input id="auteur" type="text" pInputText formControlName="auteur">
+          <label for="auteur">Auteur</label>
+      </span>
+      <span class="p-float-label">
+          <input id="pays" type="text" pInputText formControlName="pays">
+          <label for="pays">Pays</label>
+      </span>
+      <p-button label="Submit" (click)="onSubmit()"></p-button>
+    </form>
+  </div>
+</div>
